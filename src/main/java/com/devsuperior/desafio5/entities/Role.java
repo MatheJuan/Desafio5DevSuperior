@@ -1,4 +1,4 @@
-package com.devsuperior.demo.entities;
+package com.devsuperior.desafio5.entities;
 
 import org.springframework.security.core.GrantedAuthority;
 

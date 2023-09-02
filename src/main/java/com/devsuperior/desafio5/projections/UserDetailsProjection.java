@@ -1,4 +1,4 @@
-package com.devsuperior.demo.projections;
+package com.devsuperior.desafio5.projections;
 
 public interface UserDetailsProjection {
 

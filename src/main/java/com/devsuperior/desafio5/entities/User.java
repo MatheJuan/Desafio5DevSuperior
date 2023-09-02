@@ -1,4 +1,4 @@
-package com.devsuperior.demo.entities;
+package com.devsuperior.desafio5.entities;
 
 import java.time.LocalDate;
 import java.util.Collection;

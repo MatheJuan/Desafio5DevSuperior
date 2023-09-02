@@ -1,4 +1,4 @@
-package com.devsuperior.demo.entities;
+package com.devsuperior.desafio5.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

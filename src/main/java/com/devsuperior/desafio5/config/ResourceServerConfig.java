@@ -1,4 +1,4 @@
-package com.devsuperior.demo.config;
+package com.devsuperior.desafio5.config;
 
 import java.util.Arrays;
 

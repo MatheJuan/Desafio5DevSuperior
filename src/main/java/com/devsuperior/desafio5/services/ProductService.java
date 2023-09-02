@@ -1,15 +1,14 @@
-package com.devsuperior.demo.services;
+package com.devsuperior.desafio5.services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.devsuperior.demo.dto.ProductDTO;
-import com.devsuperior.demo.entities.Product;
-import com.devsuperior.demo.repositories.ProductRepository;
+import com.devsuperior.desafio5.dto.ProductDTO;
+import com.devsuperior.desafio5.entities.Product;
+import com.devsuperior.desafio5.repositories.ProductRepository;
 
 @Service
 public class ProductService {
@@ -17,7 +16,7 @@ public class ProductService {
 	@Autowired
 	private ProductRepository productRepository;
 	
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_OPERATOR')")
+	
 	@Transactional(readOnly = true)
 	public ProductDTO findById(Long id) {
 		Product entity = productRepository.findById(id).get();
@@ -27,7 +26,7 @@ public class ProductService {
 	public List<ProductDTO> findAll() {
 		return productRepository.findAll().stream().map(x -> new ProductDTO(x)).toList();
 	}
-	@PreAuthorize("HasRole('ROLE_ADMIN')")
+	
 	@Transactional
 	public ProductDTO insert(ProductDTO dto) {
 		Product entity = new Product();

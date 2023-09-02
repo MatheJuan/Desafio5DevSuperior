@@ -1,9 +1,9 @@
-package com.devsuperior.demo.repositories;
+package com.devsuperior.desafio5.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.devsuperior.demo.entities.Product;
+import com.devsuperior.desafio5.entities.Product;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {

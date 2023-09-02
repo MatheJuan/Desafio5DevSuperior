@@ -1,4 +1,4 @@
-package com.devsuperior.demo.config.customgrant;
+package com.devsuperior.desafio5.config.customgrant;
 
 import java.security.Principal;
 import java.util.HashSet;

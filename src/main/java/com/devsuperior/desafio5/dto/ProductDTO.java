@@ -1,6 +1,6 @@
-package com.devsuperior.demo.dto;
+package com.devsuperior.desafio5.dto;
 
-import com.devsuperior.demo.entities.Product;
+import com.devsuperior.desafio5.entities.Product;
 
 public class ProductDTO {
 
