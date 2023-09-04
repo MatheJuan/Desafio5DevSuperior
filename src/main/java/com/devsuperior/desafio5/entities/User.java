@@ -32,6 +32,8 @@ public class User implements UserDetails{
 	@Column(unique = true)
 	private String email;
 	private String password;
+	private String phone;
+	private LocalDate birthDate;
 
 	@ManyToMany
 	@JoinTable(name = "tb_user_role",
@@ -46,7 +48,9 @@ public class User implements UserDetails{
 		this.id = id;
 		this.name = name;
 		this.email = email;
+		this.birthDate = birthDate;
 		this.password = password;
+		this.phone = phone;
 	}
 
 	public Long getId() {
@@ -90,6 +94,22 @@ public class User implements UserDetails{
 
 	public void addRole(Role role) {
 		roles.add(role);
+	}
+	
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public LocalDate getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(LocalDate birthDate) {
+		this.birthDate = birthDate;
 	}
 
 	public Boolean hasRole(String roleName) {
