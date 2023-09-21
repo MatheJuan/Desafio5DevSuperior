@@ -33,3 +33,7 @@ INSERT INTO tb_user (id, name, email, phone, password, birth_date) VALUES (2,'Al
 
 INSERT INTO tb_role (id, authority) VALUES (1, 'ROLE_CLIENT');
 INSERT INTO tb_role (id, authority) VALUES (2, 'ROLE_ADMIN');
+
+INSERT INTO tb_user_role(user_id, role_id) VALUES (1,1);
+INSERT INTO tb_user_role(user_id, role_id) VALUES (2,1);
+INSERT INTO tb_user_role(user_id, role_id) VALUES (2,2);
