@@ -5,7 +5,7 @@ import java.time.Instant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
+ 
 import com.devsuperior.desafio5.dto.OrderDTO;
 import com.devsuperior.desafio5.dto.OrderItemDTO;
 import com.devsuperior.desafio5.entities.Order;
@@ -27,26 +27,30 @@ public class OrderService {
 
 	@Autowired
 	private UserService userService;
+
 	@Autowired
 	private OrderItemRepository orderItemRepository;
-	
+	@Autowired
+	private AuthService authService;
+
 	@Transactional(readOnly = true)
 	public OrderDTO findById(Long id) {
-		Order order = repository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Recurso não encontrado..."));
+		Order order = repository.findById(id).orElseThrow(
+				() -> new ResourceNotFoundException("Recurso nao encontrado"));
+		authService.validateSelfOrAdmin(order.getClient().getId());
 		return new OrderDTO(order);
 	}
 
 	@Transactional
-public OrderDTO insert(OrderDTO dto) {
-		
+	public OrderDTO insert(OrderDTO dto) {
+
 		Order order = new Order();
 		order.setMoment(Instant.now());
 		order.setStatus(OrderStatus.WAITING_PAYMENT);
-		
-		User user= userService.authentication();
+
+		User user = userService.authentication();
 		order.setClient(user);
-		for(OrderItemDTO itemDto : dto.getItems()) {
+		for (OrderItemDTO itemDto : dto.getItems()) {
 			Product product = productrepository.getReferenceById(itemDto.getProductId());
 			OrderItem item = new OrderItem(order, product, itemDto.getQuantity(), product.getPrice());
 			order.getItems().add(item);

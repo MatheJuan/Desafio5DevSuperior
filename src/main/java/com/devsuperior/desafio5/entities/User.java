@@ -112,13 +112,12 @@ public class User implements UserDetails{
 		this.birthDate = birthDate;
 	}
 
-	public Boolean hasRole(String roleName) {
+	public boolean hasRole(String roleName) {
 		for (Role role : roles) {
 			if (role.getAuthority().equals(roleName)) {
 				return true;
 			}
-		}
-		return null;
+		} return false;
 	}
 
 	@Override
@@ -141,8 +140,8 @@ public class User implements UserDetails{
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		 return  roles;
+	
 	}
-
 	@Override
 	public String getUsername() {
 	 	return email;
